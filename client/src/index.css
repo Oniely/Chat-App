@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea {
+    @apply w-full border border-grey my-1 py-2 px-3 rounded-xl;
+}
+
+button {
+    @apply bg-grey;
+}
+
+button.primary {
+    @apply bg-primary p-2 w-full text-white rounded-xl
+}
