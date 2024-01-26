@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 // imports
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler.js");
+const authenticateUser = require('./middleware/authentication');
 
 // packages
 const cors = require("cors");
@@ -23,9 +24,11 @@ app.use(
 
 // routers
 const authRouter = require("./routes/auth");
+const chatRouter = require('./routes/chat');
 
 // routes
 app.use("/auth", authRouter);
+app.use('/chat', chatRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
@@ -38,7 +41,7 @@ const start = async () => {
 			console.log(`Server is listening on port ${PORT}...`);
 		});
 	} catch (error) {
-		throw new error();
+		console.error(error);
 	}
 };
 
